@@ -1,0 +1,2 @@
+#+title: README
+Este repositorio busca hacer investigaciones acerca de estafas en línea comunes, lista algunas medidas de prevención y solución, adicional a descripciones de las estafas y las metodologías, así como análisis limitados por mi conocimiento.
