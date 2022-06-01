@@ -22,7 +22,7 @@ Adicional a esto se incluye un enlace el cual lleva a una página externa, la cu
 
 El mensaje por si mismo no es malicioso y el remitente tampoco (es probable que sea un contacto conocido parte de tus amigos en facebook), sin embargo por la simple denotación del mensaje insta al usuario a abrir el enlace.
 * Información del enlace
-El enlace usa un acortador de enlaces, este acortador es provisto por el servicio https://www.linkjoy.io/, el cual por si mismo no es malicioso y es un servicio fidedigno, que además de acortar enlaces permite al usuario colocar scripts[fn:: Un script es un código que ejecuta normalmente el navegador], normalmente usado para colocar anuncios más personalizados a cada usuario.
+El enlace usa un acortador de enlaces, este acortador es provisto por el servicio https://www.linkjoy.io/, el cual por si mismo no es malicioso y es un servicio fidedigno, que además de acortar enlaces permite al usuario colocar scripts (/Un script es un código que ejecuta normalmente el navegador/), normalmente usado para colocar anuncios más personalizados a cada usuario.
 
 Después de terminar el redireccionamiento, dirige a la página https://site-7684776-1073-9780.mystrikingly.com/, la cual por si sola no es maliciosa ni tampoco ejecuta código malicioso.
 
@@ -30,7 +30,7 @@ Usando Chrome, Vivaldi, Edge, Brave o cualquier otro derivado de Chromium que us
 
 [[./assets/2022-06-01 16.11.01 site-7684776-1073-9780.mystrikingly.com 7da1261d198d.png]]
 
-Si se entra al sitio, pueden ocurrir dos cosas, si se detecta que el usuario es parte del objetivo[fn:: los objetivos normalmente son por zonas geográficas, es decir, si el usuario originalmente infectado es de México, únicamente esperará a usuarios mexicanos], lo enlaza a una página similar a un inicio de sesión de facebook, por el contrario si no es parte del objetivo, muestra una página distinta la cual luce así:
+Si se entra al sitio, pueden ocurrir dos cosas, si se detecta que el usuario es parte del objetivo (/los objetivos normalmente son por zonas geográficas, es decir, si el usuario originalmente infectado es de México, únicamente esperará a usuarios mexicanos/), lo enlaza a una página similar a un inicio de sesión de facebook, por el contrario si no es parte del objetivo, muestra una página distinta la cual luce así:
 
 [[./assets/20220601-161353.png]]
 
@@ -51,22 +51,22 @@ Después de cerrar todas las sesiones es sumamente necesario que se cambie la co
 ** Prevención
 Las primeras medidas de prevención son básicas, no abrir ningún enlace que no te sea conocido y en caso de ser un acortador de enlaces es probable que se trate de un ataque, si alguien envió un enlace de ese tipo, antes de abrirlo comunícate con la persona usando un medio alterno y pregunta si esa persona envió el enlace.
 
-Usa contraseñas fuertes, incluyen números, letras mayúsculas y minúsculas, símbolos en combinaciones de más de 10 dígitos, si bien no hay una regla que permita contraseñas fáciles de recordar y fuertes, puedes usar un gestor de contraseñas[fn::Nunca usar los gestores de contraseñas de los navegadores, estos guardan las contraseñas en archivos de fácil acceso sin contraseña]. De igual manera, no compartas contraseñas entre servicios y por último, cambia tus contraseñas cada cierto tiempo, cada 6 meses o cada año debería ser suficiente para mantenerte casi completamente seguro.
+Usa contraseñas fuertes, incluyen números, letras mayúsculas y minúsculas, símbolos en combinaciones de más de 10 dígitos, si bien no hay una regla que permita contraseñas fáciles de recordar y fuertes, puedes usar un gestor de contraseñas (/Nunca usar los gestores de contraseñas de los navegadores, estos guardan las contraseñas en archivos de fácil acceso sin contraseña/). De igual manera, no compartas contraseñas entre servicios y por último, cambia tus contraseñas cada cierto tiempo, cada 6 meses o cada año debería ser suficiente para mantenerte casi completamente seguro.
 
 Usa la autenticación en dos pasos (también conocida como inicio de sesión en dos pasos), puedes investigar como funciona o más tarde puedo escribir como funciona.
 * Detalles ligeramente más técnicos
 Como ya se mencionó, todo el redireccionamiento ocurre usando un acortador de enlaces, este lleva a la página mencionada con anterioridad.
 
-La página fue creada con ayuda de un servicio freemium[fn::Un servicio freemium es un servicio premium que ofrece uno gratuito pero limitado], este servicio es de igual manera fidedigno, sin embargo parece ser muy usado por ciberdelincuentes para hacer ataques similares.
+La página fue creada con ayuda de un servicio freemium, este servicio es de igual manera fidedigno, sin embargo parece ser muy usado por ciberdelincuentes para hacer ataques similares.
 
 Dependiendo si el usuario es parte del objetivo o no, se muestran páginas distintas, de igual manera el mecanismo siempre es el mismo.
 
 El servicio que permite la creación de estas páginas, llamado https://www.strikingly.com/, además de tener una interfaz gráfica para la creación de páginas, permite al usuario colocar su propio código, ya sea ~html~, ~css~ o ~javascript~. En la página sobre la cual es redireccionada, ejecuta inmediatamente el script introducido por el atacante, este script es fácilmente identificable al inspeccionar el código, ya que se encuentra sobre dos etiquetas de comentarios con la descripción ~CUSTOM_CODE_START~ y ~CUSTOM_CODE_END~.
 
-El script tiene referencia hacia https://drakgonindustries.com:3069/api/scripts/scViejo2?contador=josealbert10&owner=josealbertct&isbot=false, la página únicamente carga el recurso solicitado, en este caso un código en javascript, adicional a esto el enlace contiene una etiqueta ~isbot=false~, esto para evitar que cualquier dispositivo que no sea manipulado por un humano pueda acceder al recurso. El código javascript al que enlaza se encuentra en el archivo [[file:scripts/inicio-sesion-facebook.txt][inicio-sesion-facebook.txt]][fn::El archivo está contenido en un .txt para evitar la ejecución accidental del código, sin embargo por tratarse de código este puede ser usado en cualquier otro formato y ejecutado].
+El script tiene referencia hacia https://drakgonindustries.com:3069/api/scripts/scViejo2?contador=josealbert10&owner=josealbertct&isbot=false, la página únicamente carga el recurso solicitado, en este caso un código en javascript, adicional a esto el enlace contiene una etiqueta ~isbot=false~, esto para evitar que cualquier dispositivo que no sea manipulado por un humano pueda acceder al recurso. El código javascript al que enlaza se encuentra en el archivo [[file:scripts/inicio-sesion-facebook.txt][inicio-sesion-facebook.txt]] (/El archivo está contenido en un .txt para evitar la ejecución accidental del código, sin embargo por tratarse de código este puede ser usado en cualquier otro formato y ejecutado/).
 
 Al cargar la página creada con /strikingly/, esta carga el script mencionado anteriormente, el script contiene un temporizador sencillo (Este temporizador parece permitir a la página detectar la ubicación del usuario para determinar si le es mostrada o no la página de phising), si el usuario es "apto" para la estafa, procede a cargar el resto del script, que sustituye la página original por una copia de un inicio de sesión de facebook.
 
 En caso de que el usuario llene la forma y envíe los datos, estos no son enviados a los servidores de facebook, y en su lugar son enviados a un servidor bajo el dominio http://drakgonindustries.com/, el script provee más información de la metodología.
 
-El dominio anteriormente mencionado fue registrado el día 22 de marzo del año 2022, por lo tanto se usado en más ocasiones para hacer otro tipo de actividades ilícitas con anterioridad. Si se intenta entrar al dominio sin ningún tipo de argumento adicional muestra un /espejo/[fn::Se usa el término espejo como traducción de mirror, es decir es una copia real del servicio original, sin embargo no se encuentra bajo el dominio original], de un servicio llamado feature.fm, sin embargo sólo es un disfraz para que luzca como una página real.
+El dominio anteriormente mencionado fue registrado el día 22 de marzo del año 2022, por lo tanto se usado en más ocasiones para hacer otro tipo de actividades ilícitas con anterioridad. Si se intenta entrar al dominio sin ningún tipo de argumento adicional muestra un /espejo/ /Se usa el término espejo como traducción de mirror, es decir es una copia real del servicio original, sin embargo no se encuentra bajo el dominio original/, de un servicio llamado feature.fm, sin embargo sólo es un disfraz para que luzca como una página real.
